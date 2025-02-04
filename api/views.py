@@ -11,7 +11,7 @@ class NumberClassificationView(APIView):
 
         if not number_param or not number_param.isdigit():
             return Response({
-            "number": number,
+            "number": 'alphabet',
             "error": 'true'
             }, status=status.HTTP_400_BAD_REQUEST)
         
