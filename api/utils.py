@@ -41,8 +41,7 @@ def get_fun_fact(num):
     print("url:", url)
     
     try:
-        response = requests.get(url, timeout=66)
-        logging.info(f"Response status code: {response.status_code}")
+        response = requests.get(url, timeout=5)
         if response.status_code == 200:
             data = response.json()
             return data.get("text", "No fun fact available.")
