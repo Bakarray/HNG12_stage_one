@@ -35,9 +35,9 @@ def get_digit_sum(num):
     return sum(int(d) for d in str(num))
 
 def get_fun_fact(num):
-    types = ["trivia", "math", "date", "year"]
-    selected_type = random.choice(types)
-    url = f"https://numbersapi.com/{num}/{selected_type}"
+    #types = ["trivia", "math", "date", "year"]
+    #selected_type = random.choice(types)
+    url = f"http://numbersapi.com/{num}/math?json"
     print("url:", url)
     
     try:
