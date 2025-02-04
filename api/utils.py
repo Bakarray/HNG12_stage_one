@@ -38,7 +38,6 @@ def get_fun_fact(num):
     #types = ["trivia", "math", "date", "year"]
     #selected_type = random.choice(types)
     url = f"http://numbersapi.com/{num}/math?json"
-    print("url:", url)
     
     try:
         response = requests.get(url, timeout=5)
