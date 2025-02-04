@@ -1,4 +1,3 @@
-import logging
 import requests, random
 
 def is_prime(num):
@@ -14,14 +13,17 @@ def is_prime(num):
     return True
 
 def is_perfect(num):
+    num = abs(num)
     divisors = [i for i in range(1, num) if num % i == 0]
     return sum(divisors) == num
 
 def is_armstrong(num):
+    num = abs(num)
     digits = [int(d) for d in str(num)]
     return sum(d ** len(digits) for d in digits) == num
 
 def get_properties(num):
+    num = abs(num)
     properties = []
     if is_armstrong(num):
         properties.append("armstrong")
@@ -32,6 +34,7 @@ def get_properties(num):
     return properties
 
 def get_digit_sum(num):
+    num = abs(num)
     return sum(int(d) for d in str(num))
 
 def get_fun_fact(num):

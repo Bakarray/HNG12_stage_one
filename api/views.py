@@ -8,14 +8,16 @@ from .utils import is_prime, is_perfect, get_properties, get_digit_sum, get_fun_
 class NumberClassificationView(APIView):
     def get(self, request, format=None):
         number_param = request.query_params.get('number')
+        number = number_param if number_param else ''
 
-        if not number_param or not number_param.isdigit():
+        try:
+            number = int(number)
+        except ValueError:
             return Response({
             "error": True,
-            "number": number_param if number_param else ''
+            "number": number
             }, status=status.HTTP_400_BAD_REQUEST)
         
-        number = int(number_param)
 
         response_data = {
             "number": number,
