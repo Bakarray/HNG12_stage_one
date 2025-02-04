@@ -1,3 +1,4 @@
+import logging
 import requests, random
 
 def is_prime(num):
@@ -36,11 +37,12 @@ def get_digit_sum(num):
 def get_fun_fact(num):
     types = ["trivia", "math", "date", "year"]
     selected_type = random.choice(types)
-    url = f"http://numbersapi.com/{num}/{selected_type}"
+    url = f"https://numbersapi.com/{num}/{selected_type}"
     print("url:", url)
     
     try:
-        response = requests.get(url, timeout=5)
+        response = requests.get(url, timeout=66)
+        logging.info(f"Response status code: {response.status_code}")
         if response.status_code == 200:
             data = response.json()
             return data.get("text", "No fun fact available.")
